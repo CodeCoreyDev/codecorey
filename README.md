@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Welcome to TanStack.com!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This site is built with TanStack Router!
 
-## Available Scripts
+- [TanStack Router Docs](https://tanstack.com/router)
 
-In the project directory, you can run:
+It's deployed automagically with Netlify!
 
-### `yarn start`
+- [Netlify](https://netlify.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Development
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+From your terminal:
 
-### `yarn test`
+```sh
+pnpm install
+pnpm dev
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This starts your app in development mode, rebuilding assets on file changes.
 
-### `yarn build`
+## Editing and previewing the docs of TanStack projects locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The documentations for all TanStack projects except for `React Charts` are hosted on [https://tanstack.com](https://tanstack.com), powered by this TanStack Router app.
+In production, the markdown doc pages are fetched from the GitHub repos of the projects, but in development they are read from the local file system.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Follow these steps if you want to edit the doc pages of a project (in these steps we'll assume it's [`TanStack/form`](https://github.com/tanstack/form)) and preview them locally :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Create a new directory called `tanstack`.
 
-### `yarn eject`
+```sh
+mkdir tanstack
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Enter the directory and clone this repo and the repo of the project there.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+cd tanstack
+git clone git@github.com:TanStack/tanstack.com.git
+git clone git@github.com:TanStack/form.git
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> [!NOTE]
+> Your `tanstack` directory should look like this:
+>
+> ```
+> tanstack/
+>    |
+>    +-- form/
+>    |
+>    +-- tanstack.com/
+> ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> [!WARNING]
+> Make sure the name of the directory in your local file system matches the name of the project's repo. For example, `tanstack/form` must be cloned into `form` (this is the default) instead of `some-other-name`, because that way, the doc pages won't be found.
 
-## Learn More
+3. Enter the `tanstack/tanstack.com` directory, install the dependencies and run the app in dev mode:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+cd tanstack.com
+pnpm i
+# The app will run on https://localhost:3000 by default
+pnpm dev
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Now you can visit http://localhost:3000/form/latest/docs/overview in the browser and see the changes you make in `tanstack/form/docs`.
 
-### Code Splitting
+> [!NOTE]
+> The updated pages need to be manually reloaded in the browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> [!WARNING]
+> You will need to update the `docs/config.json` file (in the project's repo) if you add a new doc page!
